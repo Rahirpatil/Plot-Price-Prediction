@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Price Prediction</title>
+    <style>
+        body { font-family: Times New Roman ; background: #78c3e6ff; padding: 20px; }
+        .box { background: white; padding: 30px; border-radius: 10px; width: 400px; margin: auto; box-shadow: 0 0 10px gray; }
+        input[type=text], select { width: 100%; padding: 16px; margin: 8px 0; }
+        input[type=submit] { background-color: rgb(29, 204, 29); color: white; border: none; padding: 16px 22px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>Predict House Price</h1>
+    <form action="/predict" method="post">
+        <input type="text" name="Area_sqft" placeholder="Area in sqft" required>
+        <input type="text" name="Distance_to_City_km" placeholder="Distance to City" required>
+        <input type="text" name="Nearby_Schools" placeholder="Number of Schools Nearby" required>
+        <!-- Add more input fields for all your features in order -->
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</div>
+</body>
+</html
